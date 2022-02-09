@@ -24,7 +24,41 @@ class Solution {
     }
 }
 ```
-# Implementation 2 :
+# Implementation 2 : Next Greater Element approach
+```java
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        int[] result = new int[nums.length - k + 1];
+        // Next greater element
+        int[] ngeI = new int[nums.length];
+        ngeI[nums.length - 1] = nums.length;
+        Stack<Integer> stack = new Stack<>();
+        stack.push(nums.length - 1);
+        for(int i = nums.length - 2; i >= 0; i--) {
+            while(!stack.isEmpty() && nums[stack.peek()] <= nums[i]) {
+                stack.pop();
+            }
+            if(stack.isEmpty()) {
+                ngeI[i] = nums.length;
+            } else {
+                ngeI[i] = stack.peek();
+            }
+            stack.push(i);
+        }
+        int index = 0;
+        for(int i = 0; i <= nums.length - k; i++) {
+            int j = i;
+            while(ngeI[j] < i + k) {
+                j = ngeI[j];
+            }
+            result[index++] = nums[j];
+        }
+        return result;
+    }
+}
+```
+
+# Implementation 3 :
 
 ```java
 class Solution {
