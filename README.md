@@ -1,7 +1,31 @@
 # Sliding Window Maximum
 ## https://leetcode.com/problems/sliding-window-maximum
 
-# Implementation :
+# Implementation 1 : Naive : Calculate max for each window of length k (TLE)
+```java
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        int[] result = new int[nums.length - k + 1];
+
+        int index = 0;
+        
+        for(int i = 0; i <= nums.length - k; i++) {
+            result[index++] = getMax(nums,i, i+k-1);    
+        }
+        return result;
+    }
+    
+    private int getMax(int[] nums, int start, int end) {
+        int max = nums[start];
+        for(int i = start + 1; i <= end; i++) {
+           max = Math.max(max, nums[i]);   
+        }
+        return max;
+    }
+}
+```
+# Implementation 2 :
+
 ```java
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
