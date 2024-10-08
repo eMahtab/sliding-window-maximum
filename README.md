@@ -98,21 +98,19 @@ class Solution {
         
         int[] result = new int[nums.length - k + 1];
         Deque<Integer> dq = new ArrayDeque<>();
-        int i = 0;
-        
-        while(i < nums.length) {
-            if(!dq.isEmpty() && dq.peekFirst() == i - k)
+        int index = 0;
+        while(index < nums.length) {
+            if(!dq.isEmpty() && dq.peekFirst() == index - k)
                 dq.pollFirst();
             
-            while(!dq.isEmpty() && nums[dq.peekLast()] < nums[i])
+            while(!dq.isEmpty() && nums[index] > nums[dq.peekLast()])
                 dq.pollLast();
             
-            dq.offerLast(i);
-            
-            if(i >= k - 1) {
-                result[i-k+1] = nums[dq.peekFirst()];
+            dq.offerLast(index);
+            if(index >= k - 1) {
+                result[index-k+1] = nums[dq.peekFirst()];
             }
-            i++;
+            index++;
         }
         return result;
     }
