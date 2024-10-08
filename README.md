@@ -88,7 +88,7 @@ class Solution {
 }
 ```
 
-# Implementation 3 :
+# Implementation 3 : Using Deque O(n)
 
 ```java
 class Solution {
