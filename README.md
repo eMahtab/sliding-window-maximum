@@ -87,6 +87,19 @@ class Solution {
     }
 }
 ```
+### Sliding Window Approach :
+The idea is to keep track of the maximum number within the window, and as we iterate over the array if `num[i]` is greater than the smallest number of current window than we start removing the numbers as long as `num[i]` is greater than number in the window.
+
+We could have tried to use Stack or PriorityQueue to keep track of maximum in the current window, but we don't only need to track maximum number in the current window but also other numbers `(possible maximum)` which are less than maximum number in the current window, but as we move to the next window, these `possible maximum` numbers might become the maximum number in that window.
+
+#### Choosing the right Data Structure
+If we use Stack, we can only get access to the top element, for accessing other elements we would have to pop the elements from the stack and would have to push it back to stack.
+
+Similarly if we use PriorityQueue we can only get access to the min or max element which is at the top of heap, for accessing other elements we would have to remove elements from the heap and would have to push it back to heap.
+
+A Double ended Queue allows us to perform operation on both the ends of the data structure and we can easily access the elements in Deque. The idea is to keep the maximum number in the sliding window at the front of the Deque and the `possible maximum` numbers at the rear end (last) of the queue. The Deque would have numbers sorted in descending order, front having the maximum number and rear would have the smallest in the current window.
+
+If it is not greater than the smallest element in the window we just simply add this number in
 
 # Implementation 3 : Using Deque O(n)
 
