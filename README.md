@@ -87,10 +87,10 @@ class Solution {
     }
 }
 ```
-### Sliding Window Approach :
+### Sliding Window Approach with Monotonic Queue
 1. The idea is to keep track of the maximum number within the window, and as we iterate over the array if `num[i]` is greater than the smallest number of current window than we start removing the numbers as long as `num[i]` is greater than number in the window.
 
-2. If `num[i]` is not greater than the smallest element in the window we just simply add this number in our window.
+2. Also we add the index of current number in Deque as this number could be `possible maximum` for sliding windows to the right.
 
 We could have tried to use Stack or PriorityQueue to keep track of maximum in the current window, but we don't only need to track maximum number in the current window but also other numbers `(possible maximum)` which are less than maximum number in the current window, but as we move to the next window, these `possible maximum` numbers might become the maximum number in that window.
 
