@@ -92,7 +92,7 @@ class Solution {
 
 2. Also we add the index of current number in Deque as this number could be `possible maximum` as the window slides to the right.
 
-We could have tried to use Stack or PriorityQueue to keep track of maximum in the current window, but we don't only need to track maximum number in the current window but also other numbers `(possible maximum)` which are less than maximum number in the current window, but as we move to the next window, these `possible maximum` numbers might become the maximum number in that window.
+We could have tried to use Stack or PriorityQueue to keep track of maximum in the current window, but we don't only need to track maximum number in the current window but also other numbers `(possible maximum)` which are less than maximum number in the current window. Because as we move to the next window, these `possible maximum` numbers might become the maximum number in that window.
 
 #### Choosing the right Data Structure : Double Ended Queue (Deque)
 If we use Stack, we can only get access to the top element, for accessing other elements we would have to pop the elements from the stack and would have to push it back to stack.
