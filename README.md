@@ -88,7 +88,9 @@ class Solution {
 }
 ```
 ### Sliding Window Approach with Monotonic Queue
-1. The idea is to keep track of the maximum number within the window, and as we iterate over the array if `num[i]` is greater than the smallest number of current window than we start removing the numbers as long as `num[i]` is greater than number in the window.
+The idea is to keep the maximum number in the sliding window at the front of the Deque and the `possible maximum` numbers at the rear end (last) of the queue. The Deque would have numbers sorted in descending order, front having the maximum number and rear would have the smallest in the current window.
+
+1. As we iterate over the array if `num[i]` is greater than the smallest number of current window than we start removing the numbers as long as `num[i]` is greater than number in the window.
 
 2. Also we add the index of current number in Deque as this number could be `possible maximum` as the window slides to the right.
 
@@ -102,12 +104,10 @@ Similarly if we use PriorityQueue we can only get access to the min or max eleme
 A Double ended Queue allows us to perform operation on both the ends of the data structure and we can easily access the elements in Deque. We could have used Doubly Linked List as well but the problem is, it lacks the ease of access to perform operation or access elements from both the front and rear end. In Java Deque gives us methods e.g. addFirst(), addLast(), removeFirst(), removeLast(), peekFirst(), peekLast()
 to easily access the front/rear element and also start traversal from the front or rear.
 
-The idea is to keep the maximum number in the sliding window at the front of the Deque and the `possible maximum` numbers at the rear end (last) of the queue. The Deque would have numbers sorted in descending order, front having the maximum number and rear would have the smallest in the current window.
-
 ## Notes :
 1. We store the index `i` in Deque and not `num[i]`, this is because we also have to remove numbers from the Deque as window slides to the right. We can check if index is out of current window we remove the number.
 
-2. For given window of K, we don't try to store k elements in the Deque, rather we just need to keep the maximum number at the front of Deque and add the current number at the rear end of Deque. And when we remove element from Deque we start from the rear end of Deque.
+2. For given window of K, remember we don't try to store k elements in the Deque, rather we just need to keep the maximum number at the front of Deque and add the current number at the rear end of Deque. And when we remove element from Deque we start from the rear end of Deque.
 
 # Implementation 3 : Using Deque O(n)
 
