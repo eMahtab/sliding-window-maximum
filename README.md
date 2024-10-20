@@ -109,7 +109,7 @@ to easily access the front/rear element and also start traversal from the front 
 
 2. For given window of K, remember we don't try to store k elements in the Deque, rather we just need to keep the maximum number at the front of Deque and add the current number at the rear end of Deque. And when we remove element from Deque we start from the rear end of Deque.
 
-# Implementation 3 : Using Deque O(n)
+# Implementation 3a : Using Deque O(n), putting index into dequeue
 
 ```java
 class Solution {
@@ -132,6 +132,33 @@ class Solution {
                 result[index-k+1] = nums[dq.peekFirst()];
             }
             index++;
+        }
+        return result;
+    }
+}
+```
+# Implementation 3b : Deque , O(n), putting number in Deque
+```java
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        Deque<Integer> deque = new ArrayDeque<>();
+        int n = nums.length;
+        int[] result = new int[n-k+1];
+        int index = 0;
+        int i = 0;
+        while(index < n) {
+            if(!deque.isEmpty() && (index > k-1 && deque.peekFirst() == nums[index-k]))
+                deque.pollFirst();
+
+            while(!deque.isEmpty() && nums[index] > deque.peekLast())
+                deque.pollLast();
+
+            deque.offerLast(nums[index]);
+
+            if(index >= k-1){
+                result[i++] = deque.peekFirst();
+            }
+            index++;        
         }
         return result;
     }
