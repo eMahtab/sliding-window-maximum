@@ -118,7 +118,7 @@ In Java LinkedList and Deque gives us methods e.g. addFirst(), addLast(), remove
 
 2. For given window of K, remember we don't try to store k elements in the Deque, rather we just need to keep the maximum number at the front of Deque and add the current number at the rear end of Deque. And when we remove element from Deque we start from the rear end of Deque.
 
-# Implementation 3a : Using Deque O(n), putting index into dequeue
+# Implementation 3a : Using Deque, O(n), putting index into dequeue
 
 ```java
 class Solution {
@@ -147,7 +147,7 @@ class Solution {
 }
 ```
 
-## Implementation 3aa : Using Deque O(n), putting index into dequeue
+## Implementation 3aa : Using LinkedList, O(n), putting index into dequeue
 
 ```java
 class Solution {
@@ -156,7 +156,7 @@ class Solution {
            return new int[0];
 
         int[] result = new int[nums.length - k + 1]; 
-        Deque<Integer> deque = new ArrayDeque<>();
+        Deque<Integer> deque = new LinkedList<>();
         int index = 0;
         for(int i = 0; i < nums.length; i++) {
             if(!deque.isEmpty() && deque.peekFirst() == i -k)
