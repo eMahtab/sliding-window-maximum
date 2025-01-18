@@ -111,7 +111,7 @@ https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html
 https://docs.oracle.com/javase/8/docs/api/java/util/Deque.html
 
 
-In Java LinkedList and Deque gives us methods e.g. addFirst(), addLast(), removeFirst(), removeLast(), peekFirst(), peekLast() to easily access the front/rear element and also start traversal from the front or rear.
+In Java LinkedList and Deque gives us methods e.g. **addFirst(), addLast(), offerFirst(), offerLast(), removeFirst(), removeLast(), peekFirst(), peekLast(), pollFirst(), pollLast()** to easily access the front/rear element and also start traversal from the front or rear.
 
 ## Notes :
 1. We store the index `i` in Deque and not `num[i]`, this is because we also have to remove numbers from the Deque as window slides to the right. We can check if index is out of current window we remove the number.
