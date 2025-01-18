@@ -137,6 +137,34 @@ class Solution {
     }
 }
 ```
+
+## Implementation 3aa : Using Deque O(n), putting index into dequeue
+
+```java
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        if(nums == null || nums.length < k)
+           return new int[0];
+
+        int[] result = new int[nums.length - k + 1]; 
+        Deque<Integer> deque = new ArrayDeque<>();
+        int index = 0;
+        for(int i = 0; i < nums.length; i++) {
+            if(!deque.isEmpty() && deque.peekFirst() == i -k)
+                deque.pollFirst();
+            
+            while(!deque.isEmpty() && nums[i] > nums[deque.peekLast()])
+                 deque.pollLast(); 
+
+            deque.offerLast(i);       
+            if(i >= k - 1) {
+                result[index++] = nums[deque.peekFirst()];
+            }       
+        }
+        return result;
+    }
+}
+```
 # Implementation 3b : Deque , O(n), putting number in Deque
 ```java
 class Solution {
