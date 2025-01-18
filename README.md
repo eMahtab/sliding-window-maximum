@@ -101,8 +101,11 @@ If we use Stack, we can only get access to the top element, for accessing other 
 
 Similarly if we use PriorityQueue we can only get access to the min or max element which is at the top of heap, for accessing other elements we would have to remove elements from the heap and would have to push it back to heap.
 
-A Double ended Queue allows us to perform operation on both the ends of the data structure and we can easily access the elements in Deque. We could have used Doubly Linked List as well but the problem is, it lacks the ease of access to perform operation or access elements from both the front and rear end. In Java Deque gives us methods e.g. addFirst(), addLast(), removeFirst(), removeLast(), peekFirst(), peekLast()
-to easily access the front/rear element and also start traversal from the front or rear.
+A Double ended Queue allows us to perform operation on both the ends of the data structure and we can easily access the elements in Deque. 
+
+**We could have used Doubly Linked List as well, in Java LinkedList class implements the Deque interface and we can easily perform operations at both the end of LinkedList.**
+
+In Java LinkedList and Deque gives us methods e.g. addFirst(), addLast(), removeFirst(), removeLast(), peekFirst(), peekLast() to easily access the front/rear element and also start traversal from the front or rear.
 
 ## Notes :
 1. We store the index `i` in Deque and not `num[i]`, this is because we also have to remove numbers from the Deque as window slides to the right. We can check if index is out of current window we remove the number.
