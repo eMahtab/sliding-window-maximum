@@ -105,6 +105,12 @@ A Double ended Queue allows us to perform operation on both the ends of the data
 
 **We could have used Doubly Linked List as well, in Java LinkedList class implements the Deque interface and we can easily perform operations at both the end of LinkedList.**
 
+
+https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html
+
+https://docs.oracle.com/javase/8/docs/api/java/util/Deque.html
+
+
 In Java LinkedList and Deque gives us methods e.g. addFirst(), addLast(), removeFirst(), removeLast(), peekFirst(), peekLast() to easily access the front/rear element and also start traversal from the front or rear.
 
 ## Notes :
@@ -196,4 +202,8 @@ class Solution {
 }
 ```
 # References :
+https://docs.oracle.com/javase/8/docs/api/java/util/Deque.html
+
+https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html
+
 https://www.youtube.com/watch?v=fbkvdWUS5Ic
